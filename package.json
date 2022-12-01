@@ -1,0 +1,80 @@
+{
+  "name": "running-api",
+  "version": "1.0.0",
+  "description": "koa version for running backend",
+  "main": "dist/index.js",
+  "author": "kefei",
+  "license": "ISC",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.config.js --color --progress",
+    "build:watch": "webpack --watch",
+    "coverage": "npm test -- --coverage",
+    "format": "prettier --no-semi --single-quote --parser typescript --write \"src/**/*.ts\"",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "precommit": "lint-staged",
+    "start": "npm run build && node dist/index.js",
+    "dev": "ts-node src/index",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "upver": "standard-version"
+  },
+  "lint-staged": {
+    "src/**/**.ts": [
+      "prettier --no-semi --single-quote --parser typescript --write",
+      "tslint -e \"src/*.d.ts\"",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luankefei/running-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/luankefei/running-api/issues"
+  },
+  "homepage": "https://github.com/luankefei/running-api#readme",
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  },
+  "dependencies": {
+    "@koa/cors": "^4.0.0",
+    "@types/js-yaml": "^4.0.5",
+    "isomorphic-fetch": "^3.0.0",
+    "js-yaml": "^4.1.0",
+    "koa": "^2.13.4",
+    "koa-bodyparser": "^4.3.0",
+    "koa-helmet": "^6.1.0",
+    "koa-morgan": "^1.0.1",
+    "koa-router": "^12.0.0",
+    "koa-static": "^5.0.0",
+    "moment": "^2.29.4",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.26.0",
+    "source-map-support": "^0.5.21",
+    "winston": "^3.8.2",
+    "winston-daily-rotate-file": "^4.7.1"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.13.5",
+    "@types/koa-bodyparser": "^4.3.10",
+    "@types/koa-router": "^7.4.4",
+    "@types/koa-static": "^4.0.2",
+    "@types/source-map-support": "^0.5.6"
+  }
+}
