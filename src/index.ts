@@ -2,9 +2,11 @@
  * 入口模块
  */
 import sourceMapSupport from "source-map-support";
-import * as moment from "moment";
+import moment from "moment";
 // import "moment/locale/zh-cn";
 import "isomorphic-fetch";
+import main from "./main";
+import config from "./constant/env.constant";
 
 sourceMapSupport.install();
 
@@ -16,13 +18,5 @@ sourceMapSupport.install();
 // import * as moment from "moment";
 // import "moment/locale/zh-cn";
 
-console.log(0);
-import main from "./main";
-console.log("-");
-import config from "./constant/env.constant";
-console.log("-");
-
 moment.locale("zh-cn");
-console.log(1);
 main(config);
-console.log(2);
