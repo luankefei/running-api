@@ -10,6 +10,10 @@ import config from "./constant/env.constant";
 
 sourceMapSupport.install();
 
+// for test
+// import { migrateGarminCN2GarminGlobal } from "./garmin/index";
+// migrateGarminCN2GarminGlobal();
+
 // require("isomorphic-fetch");
 
 // import * as Bluebird from "bluebird";

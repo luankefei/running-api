@@ -4,7 +4,6 @@ import middleware from "./middleware";
 import router from "./middleware/router.mw";
 import connectDB, { dispose as disposeDB } from "./db";
 import getLogger from "./helper/logger.helper";
-console.log("--");
 
 // -----------------------------------------------------------------------------
 
@@ -23,7 +22,6 @@ function shutdown(code: number = 0) {
   });
 }
 
-console.log("--");
 export default async function main(options: any) {
   const err = await connectDB(options.mode);
   if (err) {
@@ -76,7 +74,6 @@ export default async function main(options: any) {
     shutdown(1);
   });
 
-  console.log("--");
   // ---------------------------------------------------------------------------
 
   return new Promise((resolve, reject) => {
