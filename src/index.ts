@@ -7,10 +7,12 @@ import moment from "moment";
 import "isomorphic-fetch";
 import main from "./main";
 import config from "./constant/env.constant";
+import strava from "./strava";
 
 sourceMapSupport.install();
 
 // for test
+strava.auth();
 // import { migrateGarminCN2GarminGlobal } from "./garmin/index";
 // migrateGarminCN2GarminGlobal();
 

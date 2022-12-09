@@ -90,7 +90,7 @@ export const migrateGarminCN2GarminGlobal = async (count = 200) => {
   // TODO: 这里的逻辑不对，不止需要返回 client，还需要登录。参考 DailySync 项目
   const garminCN = new GarminCN();
   const { client: clientCN } = garminCN;
-  await garminCN.login("", "");
+  await garminCN.login("luankefei@gmail.com", "Sunken24");
 
   // const clientGlobal = new GarminGlobal();
   // await clientGlobal.login();

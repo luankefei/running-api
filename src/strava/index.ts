@@ -1,4 +1,28 @@
-export default {};
+import yaml from "js-yaml";
+import path from "path";
+import fs from "fs";
+import API from "./api";
+import response from "@/middleware/response.mw";
+import { head } from "request";
+
+let config: any;
+try {
+  const filePath = path.resolve(__dirname, "../db", "user.yaml");
+  const dbConfig = fs.readFileSync(filePath, "utf-8");
+  config = yaml.load(dbConfig);
+  config = config.strava;
+} catch (e) {
+  console.log(e);
+}
+
+export default {
+  auth: async () => {
+    const headers = new Headers();
+    headers.append("Authorization", `Bearer ${config.access_token}`);
+    const request = new Request(API.auth, { headers });
+    return await fetch(request).then((res) => res.json());
+  },
+};
 
 // {
 //   "id": 79931608,
